@@ -40,6 +40,11 @@ const PizzaContextProvider = ({ children }) => {
     await axios.post(API, newPizza);
     getPizzas();
   }
+
+  async function deletePizza(id) {
+    await axios.delete(`${API}/${id}`);
+    getPizzas();
+  }
 };
 
 export default PizzaContextProvider;
