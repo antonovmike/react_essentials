@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# React Essentials
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Канал автора видео уроков Makhabat Abdisattarova](https://www.youtube.com/@developerkg).
 
-## Available Scripts
+## Часть 1
 
-In the project directory, you can run:
+[![Основы React: Создание простого приложения с использованием MUI и react-router-dom](https://img.youtube.com/vi/XPFaB0W7L60/0.jpg)](https://youtu.be/XPFaB0W7L60)
 
-### `npm start`
+## Часть 2
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[![Все про Context. Создаем React.createContext() для удобного управления состоянием без Redux!](https://img.youtube.com/vi/RqQySHA-xSY/0.jpg)](https://youtu.be/RqQySHA-xSY)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[Оригинальный код из видео уроков](https://github.com/makhabatabdi/React.createContext).
 
-### `npm test`
+## Создание приложения:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npx create-react-app .
+```
 
-### `npm run build`
+## Установка пакетов:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm i @mui/material @emotion/react @emotion/styled
+npm i react-router-dom
+npm i @mui/icons-material
+npm i axios
+npm i -g json-server
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Запуск приложения:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm start
+```
 
-### `npm run eject`
+## Запуск json-server:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+json-server --watch db.json --port 8000
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Источники:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+[React.dev](https://react.dev/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+[React router DOM](https://www.npmjs.com/package/react-router-dom?activeTab=readme)
 
-## Learn More
+[MUI getting started](https://mui.com/material-ui/getting-started/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[MUI icons material](https://www.npmjs.com/package/@mui/icons-material)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[MUI react app bar](https://mui.com/material-ui/react-app-bar/)
 
-### Code Splitting
+[MUI react card](https://mui.com/material-ui/react-card/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+[Scaling up with reducer and context](https://react.dev/learn/scaling-up-with-reducer-and-context)
 
-### Analyzing the Bundle Size
+[Context (legacy)](https://legacy.reactjs.org/docs/context.html)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Работа с git
 
-### Making a Progressive Web App
+После того, как репозиторий, например “your_repository_name”, создан на сайте github или gitlab:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Инициализация Git-репозитория**
+   ```bash
+   cd path/to/your_repository_name
+   git init
+   ```
+2. **Добавление всех файлов**
+   ```bash
+   git add .
+   ```
+3. **Создание первого коммита**
+   ```bash
+   git commit -m "Initial commit"
+   ```
+4. **Связывание с удалённым репозиторием**
+   ```bash
+   git remote add origin https://github.com/yourusername/your_repository_name.git
+   ```
+5. **Отправка кода в удалённый репозиторий**
+   ```bash
+   git push -u origin master
+   ```
