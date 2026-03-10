@@ -62,7 +62,7 @@ const PizzaContextProvider = ({ children }) => {
   }
 
   async function editPizza(id, newPizza) {
-    axios.put.delete(`${API}/${id}`, newPizza);
+    await axios.put.delete(`${API}/${id}`, newPizza);
     getPizzas();
   }
 

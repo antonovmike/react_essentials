@@ -54,6 +54,10 @@ json-server --watch db.json --port 8000
 
 [MUI react card](https://mui.com/material-ui/react-card/)
 
+[MUI react button](https://mui.com/material-ui/react-button/)
+
+[MUI react dialog](https://mui.com/material-ui/react-dialog/)
+
 [Scaling up with reducer and context](https://react.dev/learn/scaling-up-with-reducer-and-context)
 
 [Context (legacy)](https://legacy.reactjs.org/docs/context.html)
