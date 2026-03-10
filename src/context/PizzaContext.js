@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import axios from "axios";
 
 export const pizzaContext = React.createContext();
@@ -10,8 +10,29 @@ const INIT_STATE = {
 
 const API = "http://localhost:8000/pizzas";
 
+const reducer = (state = INIT_STATE, action) => {
+  switch (action.type) {
+    case "GET_PIZZAS":
+      return {
+        ...state,
+        pizzas: action.payload.data,
+      };
+    default:
+      return state;
+  }
+};
+
 const PizzaContextProvider = ({ children }) => {
-  //
+  // Dispatch is a function passes a certain state or action to our reducer
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
+
+  async function getPizzas() {
+    let result = await axios(API);
+    dispatch({
+      type: "GET_PIZZAS",
+      payload: result,
+    });
+  }
 };
 
 export default PizzaContextProvider;
