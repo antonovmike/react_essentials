@@ -13,6 +13,8 @@ const API = "http://localhost:8000/pizzas";
 const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case "GET_PIZZAS":
+      console.log(action.payload);
+
       return {
         ...state,
         pizzas: action.payload.data,
@@ -32,6 +34,11 @@ const PizzaContextProvider = ({ children }) => {
       type: "GET_PIZZAS",
       payload: result,
     });
+  }
+
+  async function addPizza(newPizza) {
+    await axios.post(API, newPizza);
+    getPizzas();
   }
 };
 
