@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -11,18 +11,23 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 
 import { data } from "../helpers/data";
-import pizzaContext from "../context/PizzaContext";
+import { PizzaContext } from "../context/PizzaContext.jsx";
 
 export default function Home() {
   const [isModal, setIsModal] = useState(false);
-  const { newPizza, setNewPizza } = useState({
+  const [newPizza, setNewPizza] = useState({
     name: "",
     price: 0,
     description: "",
     image: "",
     id: Date.now(),
   });
-  const { addPizza } = useContext(pizzaContext);
+
+  useEffect(() => {
+    getPizzas();
+  });
+
+  const { addPizza, getPizzas, pizzas } = useContext(PizzaContext);
 
   function handleClose() {
     setIsModal(false);
@@ -56,7 +61,7 @@ export default function Home() {
       <div
         style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
       >
-        {data.map((pizza) => (
+        {pizzas.map((pizza) => (
           <Card key={pizza.id} sx={{ maxWidth: 345, margin: "10px" }}>
             <CardMedia
               sx={{ height: 300 }}
@@ -83,6 +88,7 @@ export default function Home() {
         <DialogContent>
           <TextField
             autoFocus
+            autoComplete="off"
             margin="dense"
             id="name"
             label="Name"
@@ -93,6 +99,7 @@ export default function Home() {
           />
           <TextField
             autoFocus
+            autoComplete="off"
             margin="dense"
             id="name"
             label="Price"
@@ -105,6 +112,7 @@ export default function Home() {
           />
           <TextField
             autoFocus
+            autoComplete="off"
             margin="dense"
             id="name"
             label="Description"
@@ -117,6 +125,7 @@ export default function Home() {
           />
           <TextField
             autoFocus
+            autoComplete="off"
             margin="dense"
             id="name"
             label="Image address"

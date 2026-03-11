@@ -6,15 +6,13 @@ import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
 import Order from "./pages/Order";
 import Footer from "./components/Footer";
-import PizzaContextProvider from "./context/PizzaContext";
+import { PizzaContextProvider } from "./context/PizzaContext.jsx";
 
 export default function App() {
-  const addPizza = PizzaContextProvider.addPizza;
-
   return (
-    <PizzaContextProvider value={{ addPizza }}>
+    <PizzaContextProvider>
       <BrowserRouter>
-        <NavBar></NavBar>
+        <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

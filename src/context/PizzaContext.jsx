@@ -1,7 +1,7 @@
-import React, { useReducer } from "react";
+import React, { createContext, useReducer } from "react";
 import axios from "axios";
 
-// import pizzaContext from "./pizzaContext";
+const PizzaContext = createContext();
 
 const INIT_STATE = {
   pizzas: [],
@@ -37,10 +37,7 @@ const PizzaContextProvider = ({ children }) => {
 
   async function getPizzas() {
     let result = await axios(API);
-    dispatch({
-      type: "GET_PIZZAS",
-      payload: result,
-    });
+    dispatch({ type: "GET_PIZZAS", payload: result });
   }
 
   async function addPizza(newPizza) {
@@ -55,19 +52,16 @@ const PizzaContextProvider = ({ children }) => {
 
   async function getOnePizza(id) {
     let result = await axios(`${API}/${id}`);
-    dispatch({
-      type: "GET_PIZZA",
-      payload: result,
-    });
+    dispatch({ type: "GET_PIZZA", payload: result });
   }
 
   async function editPizza(id, newPizza) {
-    await axios.put.delete(`${API}/${id}`, newPizza);
+    await axios.put(`${API}/${id}`, newPizza);
     getPizzas();
   }
 
   return (
-    <PizzaContextProvider
+    <PizzaContext.Provider
       value={{
         pizzas: state.pizzas,
         onePizza: state.onePizza,
@@ -79,8 +73,8 @@ const PizzaContextProvider = ({ children }) => {
       }}
     >
       {children}
-    </PizzaContextProvider>
+    </PizzaContext.Provider>
   );
 };
 
-export default PizzaContextProvider;
+export { PizzaContext, PizzaContextProvider };
