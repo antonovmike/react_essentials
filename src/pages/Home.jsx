@@ -5,12 +5,12 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 
 import { PizzaContext } from "../context/PizzaContext.jsx";
+import { StyledTextField } from "../components/StyledTextField.jsx";
 
 export default function Home() {
   const [isModal, setIsModal] = useState(false);
@@ -139,52 +139,32 @@ export default function Home() {
 
       <Dialog open={isModal} onClose={handleClose}>
         <DialogContent>
-          <TextField
-            autoFocus
-            autoComplete="off"
-            margin="dense"
+          <StyledTextField
             id="name"
             label="Name"
             type="text"
-            fullWidth
-            variant="standard"
             onChange={(e) => setNewPizza({ ...newPizza, name: e.target.value })}
           />
-          <TextField
-            autoFocus
-            autoComplete="off"
-            margin="dense"
+          <StyledTextField
             id="name"
             label="Price"
             type="number"
-            fullWidth
-            variant="standard"
             onChange={(e) =>
               setNewPizza({ ...newPizza, price: e.target.value })
             }
           />
-          <TextField
-            autoFocus
-            autoComplete="off"
-            margin="dense"
+          <StyledTextField
             id="name"
             label="Description"
             type="text"
-            fullWidth
-            variant="standard"
             onChange={(e) =>
               setNewPizza({ ...newPizza, description: e.target.value })
             }
           />
-          <TextField
-            autoFocus
-            autoComplete="off"
-            margin="dense"
+          <StyledTextField
             id="name"
             label="Image address"
             type="text"
-            fullWidth
-            variant="standard"
             onChange={(e) =>
               setNewPizza({ ...newPizza, image: e.target.value })
             }
@@ -198,57 +178,37 @@ export default function Home() {
 
       <Dialog open={editModal} onClose={editHandleClose}>
         <DialogContent>
-          <TextField
-            autoFocus
-            autoComplete="off"
-            margin="dense"
+          <StyledTextField
             id="name"
             label="Name"
             type="text"
-            fullWidth
-            variant="standard"
             value={editedPizza.name}
             onChange={(e) =>
               setEditedPizza({ ...editedPizza, name: e.target.value })
             }
           />
-          <TextField
-            autoFocus
-            autoComplete="off"
-            margin="dense"
+          <StyledTextField
             id="name"
             label="Price"
             type="number"
-            fullWidth
-            variant="standard"
             value={editedPizza.price}
             onChange={(e) =>
               setEditedPizza({ ...editedPizza, price: e.target.value })
             }
           />
-          <TextField
-            autoFocus
-            autoComplete="off"
-            margin="dense"
+          <StyledTextField
             id="name"
             label="Description"
             type="text"
-            fullWidth
-            variant="standard"
             value={editedPizza.description}
             onChange={(e) =>
               setEditedPizza({ ...editedPizza, description: e.target.value })
             }
           />
-          <TextField
-            autoFocus
-            autoComplete="off"
-            margin="dense"
+          <StyledTextField
             id="name"
             label="Image address"
             type="text"
-            fullWidth
-            variant="standard"
             value={editedPizza.image}
             onChange={(e) =>
               setEditedPizza({ ...editedPizza, image: e.target.value })
