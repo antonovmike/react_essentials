@@ -28,7 +28,7 @@ export default function Home() {
     price: 0,
     description: "",
     image: "",
-    id: Date.now(),
+    id: null,
   });
 
   const [editedPizza, setEditedPizza] = useState({
