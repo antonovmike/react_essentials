@@ -13,15 +13,11 @@ const API = "http://localhost:8000/pizzas";
 const reducer = (state = INIT_STATE, action) => {
   switch (action.type) {
     case "GET_PIZZAS":
-      console.log(action.payload);
-
       return {
         ...state,
         pizzas: action.payload.data,
       };
     case "GET_PIZZA":
-      console.log(action.payload);
-
       return {
         ...state,
         onePizza: action.payload.data,
