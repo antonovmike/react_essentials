@@ -10,7 +10,6 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 
-import { data } from "../helpers/data";
 import { PizzaContext } from "../context/PizzaContext.jsx";
 
 export default function Home() {
