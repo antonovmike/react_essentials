@@ -257,7 +257,7 @@ export default function Home() {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={editHandleClose}>Cancel</Button>
           <Button onClick={handleEdit}>Save</Button>
         </DialogActions>
       </Dialog>
