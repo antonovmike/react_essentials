@@ -15,7 +15,27 @@ import { PizzaContext } from "../context/PizzaContext.jsx";
 
 export default function Home() {
   const [isModal, setIsModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
+
+  const {
+    addPizza,
+    getPizzas,
+    pizzas,
+    deletePizza,
+    getOnePizza,
+    editPizza,
+    onePizza,
+  } = useContext(PizzaContext);
+
   const [newPizza, setNewPizza] = useState({
+    name: "",
+    price: 0,
+    description: "",
+    image: "",
+    id: Date.now(),
+  });
+
+  const [editedPizza, setEditedPizza] = useState({
     name: "",
     price: 0,
     description: "",
@@ -25,12 +45,36 @@ export default function Home() {
 
   useEffect(() => {
     getPizzas();
-  });
+  }, []);
 
-  const { addPizza, getPizzas, pizzas, deletePizza } = useContext(PizzaContext);
+  function handleEdit() {
+    editPizza(onePizza?.id, editedPizza);
+    setEditModal(false);
+    setEditedPizza({
+      name: "",
+      price: 0,
+      description: "",
+      image: "",
+      id: Date.now(),
+    });
+  }
+
+  useEffect(() => {
+    setEditedPizza({
+      name: onePizza?.name,
+      price: onePizza?.price,
+      description: onePizza?.description,
+      image: onePizza?.image,
+      id: onePizza?.id,
+    });
+  }, [onePizza]);
 
   function handleClose() {
     setIsModal(false);
+  }
+
+  function editHandleClose() {
+    setEditModal(false);
   }
 
   function handleAdd() {
@@ -77,7 +121,15 @@ export default function Home() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Edit</Button>
+              <Button
+                onClick={() => {
+                  getOnePizza(pizza.id);
+                  setEditModal(true);
+                }}
+                size="small"
+              >
+                Edit
+              </Button>
               <Button onClick={() => deletePizza(pizza.id)} size="small">
                 Delete
               </Button>
@@ -142,6 +194,71 @@ export default function Home() {
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
           <Button onClick={handleAdd}>Save</Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog open={editModal} onClose={editHandleClose}>
+        <DialogContent>
+          <TextField
+            autoFocus
+            autoComplete="off"
+            margin="dense"
+            id="name"
+            label="Name"
+            type="text"
+            fullWidth
+            variant="standard"
+            value={editedPizza.name}
+            onChange={(e) =>
+              setEditedPizza({ ...editedPizza, name: e.target.value })
+            }
+          />
+          <TextField
+            autoFocus
+            autoComplete="off"
+            margin="dense"
+            id="name"
+            label="Price"
+            type="number"
+            fullWidth
+            variant="standard"
+            value={editedPizza.price}
+            onChange={(e) =>
+              setEditedPizza({ ...editedPizza, price: e.target.value })
+            }
+          />
+          <TextField
+            autoFocus
+            autoComplete="off"
+            margin="dense"
+            id="name"
+            label="Description"
+            type="text"
+            fullWidth
+            variant="standard"
+            value={editedPizza.description}
+            onChange={(e) =>
+              setEditedPizza({ ...editedPizza, description: e.target.value })
+            }
+          />
+          <TextField
+            autoFocus
+            autoComplete="off"
+            margin="dense"
+            id="name"
+            label="Image address"
+            type="text"
+            fullWidth
+            variant="standard"
+            value={editedPizza.image}
+            onChange={(e) =>
+              setEditedPizza({ ...editedPizza, image: e.target.value })
+            }
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleEdit}>Save</Button>
         </DialogActions>
       </Dialog>
     </>
