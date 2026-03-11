@@ -5,12 +5,9 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
 
 import { PizzaContext } from "../context/PizzaContext.jsx";
-import { StyledTextField } from "../components/StyledTextField.jsx";
+import PizzaDialog from "../components/PizzaDialog";
 
 export default function Home() {
   const [isModal, setIsModal] = useState(false);
@@ -137,89 +134,21 @@ export default function Home() {
         ))}
       </div>
 
-      <Dialog open={isModal} onClose={handleClose}>
-        <DialogContent>
-          <StyledTextField
-            id="name"
-            label="Name"
-            type="text"
-            onChange={(e) => setNewPizza({ ...newPizza, name: e.target.value })}
-          />
-          <StyledTextField
-            id="name"
-            label="Price"
-            type="number"
-            onChange={(e) =>
-              setNewPizza({ ...newPizza, price: e.target.value })
-            }
-          />
-          <StyledTextField
-            id="name"
-            label="Description"
-            type="text"
-            onChange={(e) =>
-              setNewPizza({ ...newPizza, description: e.target.value })
-            }
-          />
-          <StyledTextField
-            id="name"
-            label="Image address"
-            type="text"
-            onChange={(e) =>
-              setNewPizza({ ...newPizza, image: e.target.value })
-            }
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleAdd}>Save</Button>
-        </DialogActions>
-      </Dialog>
+      <PizzaDialog
+        open={isModal}
+        onClose={handleClose}
+        pizza={newPizza}
+        onChange={setNewPizza}
+        onSave={handleAdd}
+      />
 
-      <Dialog open={editModal} onClose={editHandleClose}>
-        <DialogContent>
-          <StyledTextField
-            id="name"
-            label="Name"
-            type="text"
-            value={editedPizza.name}
-            onChange={(e) =>
-              setEditedPizza({ ...editedPizza, name: e.target.value })
-            }
-          />
-          <StyledTextField
-            id="name"
-            label="Price"
-            type="number"
-            value={editedPizza.price}
-            onChange={(e) =>
-              setEditedPizza({ ...editedPizza, price: e.target.value })
-            }
-          />
-          <StyledTextField
-            id="name"
-            label="Description"
-            type="text"
-            value={editedPizza.description}
-            onChange={(e) =>
-              setEditedPizza({ ...editedPizza, description: e.target.value })
-            }
-          />
-          <StyledTextField
-            id="name"
-            label="Image address"
-            type="text"
-            value={editedPizza.image}
-            onChange={(e) =>
-              setEditedPizza({ ...editedPizza, image: e.target.value })
-            }
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={editHandleClose}>Cancel</Button>
-          <Button onClick={handleEdit}>Save</Button>
-        </DialogActions>
-      </Dialog>
+      <PizzaDialog
+        open={editModal}
+        onClose={editHandleClose}
+        pizza={editedPizza}
+        onChange={setEditedPizza}
+        onSave={handleEdit}
+      />
     </>
   );
 }
