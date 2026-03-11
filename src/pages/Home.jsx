@@ -54,7 +54,11 @@ export default function Home() {
       id: Date.now(),
     });
   }
-
+  /*
+  Calling the setEditedPizza function inside useEffect can lead to cascading renders, 
+  especially if the state being updated initiates a re-call of the effect.
+  To avoid this issue, the logic should be separated.
+  */
   useEffect(() => {
     setEditedPizza({
       name: onePizza?.name || "",
