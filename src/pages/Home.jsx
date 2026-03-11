@@ -11,7 +11,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 
 import { data } from "../helpers/data";
-import { pizzaContext } from "../context/PizzaContext";
+import pizzaContext from "../context/PizzaContext";
 
 export default function Home() {
   const [isModal, setIsModal] = useState(false);

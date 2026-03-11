@@ -12,6 +12,16 @@
 
 [Оригинальный код из видео уроков](https://github.com/makhabatabdi/React.createContext).
 
+## Во время работы над проектом я столкнулся с <span style="color:orange">"DeprecationWarning"</span>
+
+```bash
+(node:2479572) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:2479572) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+```
+
+Т.к. решить проблему в разумные сроки не удалось, я перевёл проект на Vite.
+
 ## Создание приложения:
 
 ```bash
@@ -31,7 +41,7 @@ npm i -g json-server
 ## Запуск приложения:
 
 ```bash
-npm start
+npm run dev
 ```
 
 ## Запуск json-server:

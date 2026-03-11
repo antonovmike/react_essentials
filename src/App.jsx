@@ -9,8 +9,10 @@ import Footer from "./components/Footer";
 import PizzaContextProvider from "./context/PizzaContext";
 
 export default function App() {
+  const addPizza = PizzaContextProvider.addPizza;
+
   return (
-    <PizzaContextProvider>
+    <PizzaContextProvider value={{ addPizza }}>
       <BrowserRouter>
         <NavBar></NavBar>
         <Routes>
