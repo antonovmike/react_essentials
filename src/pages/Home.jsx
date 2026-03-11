@@ -33,7 +33,7 @@ export default function Home() {
     setIsModal(false);
   }
 
-  function handleAdd(newPizza) {
+  function handleAdd() {
     addPizza(newPizza);
     setIsModal(false);
     setNewPizza({
