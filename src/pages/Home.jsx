@@ -61,11 +61,11 @@ export default function Home() {
 
   useEffect(() => {
     setEditedPizza({
-      name: onePizza?.name,
-      price: onePizza?.price,
-      description: onePizza?.description,
-      image: onePizza?.image,
-      id: onePizza?.id,
+      name: onePizza?.name || "",
+      price: onePizza?.price || 0,
+      description: onePizza?.description || "",
+      image: onePizza?.image || "",
+      id: onePizza?.id || Date.now(),
     });
   }, [onePizza]);
 
