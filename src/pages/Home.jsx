@@ -27,7 +27,7 @@ export default function Home() {
     getPizzas();
   });
 
-  const { addPizza, getPizzas, pizzas } = useContext(PizzaContext);
+  const { addPizza, getPizzas, pizzas, deletePizza } = useContext(PizzaContext);
 
   function handleClose() {
     setIsModal(false);
@@ -78,7 +78,9 @@ export default function Home() {
             </CardContent>
             <CardActions>
               <Button size="small">Edit</Button>
-              <Button size="small">Delete</Button>
+              <Button onClick={() => deletePizza(pizza.id)} size="small">
+                Delete
+              </Button>
             </CardActions>
           </Card>
         ))}
